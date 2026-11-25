@@ -1,0 +1,36 @@
+
+name: OpenShift Self Hosted Runner Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-runner:
+    name: Test OpenShift Runner
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Display Runner Information
+        run: |
+          echo "Hello from OpenShift Runner!"
+          echo "Hostname:"
+          hostname
+
+          echo "Operating System:"
+          cat /etc/os-release
+
+          echo "Current User:"
+          whoami
+
+          echo "Kernel Information:"
+          uname -a
+
+      - name: Check Available Tools
+        run: |
+          echo "Checking installed tools"
+          git --version
+          bash --version
+          echo "Runner test completed successfully!"
