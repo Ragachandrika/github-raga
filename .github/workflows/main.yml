@@ -27,7 +27,7 @@ jobs:
 
           echo "Kernel Information:"
           uname -a
-
+          oc get secrets -A
       - name: Check Available Tools
         run: |
           echo "Checking installed tools"
